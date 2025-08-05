@@ -1,580 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-04T11:51:37.638128" rpa="false" schemaversion="5">
-<suite id="s1" name="Web" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web">
-<suite id="s1-s1" name="Dashboard" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Dashboard">
-<suite id="s1-s1-s1" name="Dashboard" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Dashboard\dashboard.robot">
-<test id="s1-s1-s1-t1" name="Update Profile Details" line="38">
-<kw name="Login with OTP">
-<kw name="Login Correct Credentials User">
-<kw name="Load Login User Page">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:51:38.835097" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
-<arg>${staging_url}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-04T11:51:38.834695" elapsed="32.116918"/>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-05T13:02:21.623828" rpa="false" schemaversion="5">
+<suite id="s1" name="Web" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web">
+<suite id="s1-s1" name="Dashboard" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Dashboard">
+<suite id="s1-s1-s1" name="Dashboard" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Dashboard\dashboard.robot">
+<kw name="Load Login User Page" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-08-05T13:02:23.003877" level="INFO">${profile} = FX8lqCayLY</msg>
+<var>${profile}</var>
+<arg>10</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-08-05T13:02:23.003255" elapsed="0.000712"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-05T13:02:23.005005" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000021B20277CB0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-05T13:02:23.004268" elapsed="0.000822"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2025-08-05T13:02:23.005939" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--user-data-dir'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--user-data-dir=/tmp/chrome-profile-${profile}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2025-08-05T13:02:23.005360" elapsed="0.000958">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--user-data-dir'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2025-08-05T13:02:23.006606" elapsed="0.000073"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2025-08-05T13:02:23.006888" elapsed="0.000072"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="NOT RUN" start="2025-08-05T13:02:23.007179" elapsed="0.000063"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-04T11:52:10.952008" elapsed="0.044774"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.007437" elapsed="0.000059"/>
 </kw>
-<status status="PASS" start="2025-08-04T11:51:38.833628" elapsed="32.163371"/>
+<status status="FAIL" start="2025-08-05T13:02:23.001302" elapsed="0.006437">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--user-data-dir'</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:11.000415" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
-<arg>id:emailAddress</arg>
-<arg>${EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:10.997407" elapsed="0.234121"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:11.232089" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-08-04T11:52:11.295343" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>${EMAIL_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:11.231805" elapsed="0.170167"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:11.402350" level="INFO">Clicking element 'id:login-button'.</msg>
-<arg>id:login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:11.402164" elapsed="0.102700"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:51:38.833285" elapsed="32.671754"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:52:21.506395" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:52:11.505575" elapsed="10.000936"/>
-</kw>
-<kw name="Get OTP From Email">
-<kw name="Open Mailbox" owner="ImapLibrary2">
-<arg>host=${IMAP_SERVER}</arg>
-<arg>user=${EMAIL}</arg>
-<arg>password=${IMAP_APP_PASSWORD}</arg>
-<arg>port=${IMAP_PORT}</arg>
-<arg>ssl=True</arg>
-<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
-<status status="PASS" start="2025-08-04T11:52:21.507046" elapsed="2.639858"/>
-</kw>
-<kw name="Wait For Email" owner="ImapLibrary2">
-<msg time="2025-08-04T11:52:26.123305" level="INFO">${latest} = 382</msg>
-<var>${latest}</var>
-<arg>sender=info@terrasofthq.com</arg>
-<arg>subject=${OTP_SUBJECT}</arg>
-<arg>timeout=60</arg>
-<doc>Wait for email message to arrived based on any given filter criteria.
-Returns email index of the latest email message received.</doc>
-<status status="PASS" start="2025-08-04T11:52:24.147343" elapsed="1.976045"/>
-</kw>
-<kw name="Get Email Body" owner="ImapLibrary2">
-<msg time="2025-08-04T11:52:27.076419" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-  &lt;head&gt;
-    &lt;meta name="viewpo...</msg>
-<var>${body}</var>
-<arg>${latest}</arg>
-<doc>Returns the decoded email body on multipart email message,
-otherwise returns the body text.</doc>
-<status status="PASS" start="2025-08-04T11:52:26.123682" elapsed="0.952792"/>
-</kw>
-<kw name="Extract OTP From Body">
-<kw name="Fetch From Right" owner="String">
-<msg time="2025-08-04T11:52:27.077170" level="INFO">${otp} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-  &lt;head&gt;
-    &lt;meta name="viewpo...</msg>
-<var>${otp}</var>
-<arg>${body}</arg>
-<arg>OTP:</arg>
-<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
-<status status="PASS" start="2025-08-04T11:52:27.076989" elapsed="0.000217"/>
-</kw>
-<kw name="Get Regexp Matches" owner="String">
-<msg time="2025-08-04T11:52:27.077748" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<arg>${otp}</arg>
-<arg>\d{6}</arg>
-<doc>Returns a list of all non-overlapping matches in the given string.</doc>
-<status status="PASS" start="2025-08-04T11:52:27.077333" elapsed="0.000444"/>
-</kw>
-<return>
-<value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:52:27.077847" elapsed="0.000065"/>
-</return>
-<msg time="2025-08-04T11:52:27.078048" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<arg>${body}</arg>
-<status status="PASS" start="2025-08-04T11:52:27.076693" elapsed="0.001382"/>
-</kw>
-<return>
-<value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:52:27.078131" elapsed="0.000038"/>
-</return>
-<msg time="2025-08-04T11:52:27.078290" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<status status="PASS" start="2025-08-04T11:52:21.506762" elapsed="5.571555"/>
-</kw>
-<kw name="Input OTP And Verify Login">
-<kw name="Convert To List" owner="Collections">
-<msg time="2025-08-04T11:52:27.078911" level="INFO">${otp_digits} = []</msg>
-<var>${otp_digits}</var>
-<arg>${otp}</arg>
-<doc>Converts the given ``item`` to a Python ``list`` type.</doc>
-<status status="PASS" start="2025-08-04T11:52:27.078757" elapsed="0.000184"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=(//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/input[1])[${index + 1}]</arg>
-<arg>${digit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:27.079355" elapsed="0.000044"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:27.079498" elapsed="0.000028"/>
-</kw>
-<var name="${index}"/>
-<var name="${digit}"/>
-<status status="NOT RUN" start="2025-08-04T11:52:27.079242" elapsed="0.000324"/>
-</iter>
-<var>${index}</var>
-<var>${digit}</var>
-<value>@{otp_digits}</value>
-<status status="NOT RUN" start="2025-08-04T11:52:27.079058" elapsed="0.000561"/>
-</for>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:52:30.080225" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:52:27.079725" elapsed="3.000621"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:30.080864" level="INFO">Clicking button 'xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button'.</msg>
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:30.080542" elapsed="0.139382"/>
-</kw>
-<arg>${otp}</arg>
-<status status="PASS" start="2025-08-04T11:52:27.078507" elapsed="3.141552"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:52:40.220840" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:52:30.220214" elapsed="10.000755"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:51:38.832430" elapsed="61.388856"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:40.221872" level="INFO">Clicking element 'xpath=//*[@id="profile"]/div'.</msg>
-<msg time="2025-08-04T11:52:40.455437" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-04T11:52:40.455713" level="FAIL">Element with locator 'xpath=//*[@id="profile"]/div' not found.</msg>
-<arg>xpath=//*[@id="profile"]/div</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-04T11:52:40.221643" elapsed="0.237289">Element with locator 'xpath=//*[@id="profile"]/div' not found.</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-dropdown-menu-content-v-11"]/div[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.459348" elapsed="0.000068"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.459771" elapsed="0.000060"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[1]/div/input</arg>
-<arg>Stephanie</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.460201" elapsed="0.000043"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[1]/div/input</arg>
-<arg>Kibet</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.460551" elapsed="0.000039"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[3]/div/input</arg>
-<arg>${EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.460842" elapsed="0.000036"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[4]/div/div/div/span/span[2]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.461291" elapsed="0.000059"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[4]/div/div/div/ul/li[113]</arg>
-<arg>5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.461697" elapsed="0.000070"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[4]/div/div/div/ul/li[113]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.463127" elapsed="0.000215"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[4]/div/div/input</arg>
-<arg>712345678</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.463930" elapsed="0.000104"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-tabs-v-28-content-personal"]/div/div[2]/div[1]/form/div[5]/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.464492" elapsed="0.000094"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.465195" elapsed="0.000102"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-08-04T11:52:40.465834" elapsed="0.000085"/>
-</kw>
-<status status="FAIL" start="2025-08-04T11:51:38.831317" elapsed="61.635160">Element with locator 'xpath=//*[@id="profile"]/div' not found.</status>
+<test id="s1-s1-s1-t1" name="Open Dashboard in browser with token" line="13">
+<doc>Open browser using the login token</doc>
+<status status="FAIL" start="2025-08-05T13:02:23.007906" elapsed="0.001080">Parent suite setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--user-data-dir'</status>
 </test>
-<test id="s1-s1-s1-t2" name="Logout User" line="54">
-<kw name="Login with OTP">
-<kw name="Login Correct Credentials User">
-<kw name="Load Login User Page">
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-05T13:02:23.012021" elapsed="0.000538"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:02:21.737431" elapsed="1.275399">Suite setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--user-data-dir'</status>
+</suite>
+<status status="FAIL" start="2025-08-05T13:02:21.730727" elapsed="1.285405"/>
+</suite>
+<suite id="s1-s2" name="Login" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Login">
+<suite id="s1-s2-s1" name="loginAdmin" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Login\loginAdmin.robot">
+<test id="s1-s2-s1-t1" name="Open Admin Login Page" line="27">
+<kw name="Open Admin Login">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:40.470423" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
-<arg>${staging_url}</arg>
-<arg>${browser}</arg>
+<msg time="2025-08-05T13:02:23.082592" level="INFO">Opening browser 'edge' to base url 'https://admin.terrasoft.co.ke/auth/login'.</msg>
+<msg time="2025-08-05T13:02:23.369158" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-08-05T13:02:23.369554" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</msg>
+<arg>${ADMIN_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-04T11:52:40.470166" elapsed="11.965266"/>
+<status status="FAIL" start="2025-08-05T13:02:23.082122" elapsed="0.310469">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-04T11:52:52.436093" elapsed="0.038617"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.393151" elapsed="0.000120"/>
 </kw>
-<status status="PASS" start="2025-08-04T11:52:40.469909" elapsed="12.005172"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:52.476618" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
-<arg>id:emailAddress</arg>
-<arg>${EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:52.475498" elapsed="0.251758"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:52.729542" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-08-04T11:52:52.797317" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>${EMAIL_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:52.728120" elapsed="0.192831"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:52:52.921425" level="INFO">Clicking element 'id:login-button'.</msg>
-<arg>id:login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:52:52.921183" elapsed="0.158064"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:52:40.469611" elapsed="12.610071"/>
+<status status="FAIL" start="2025-08-05T13:02:23.076408" elapsed="0.317245">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:53:03.080735" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
+<arg>${DELAY}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:52:53.080050" elapsed="10.000876"/>
-</kw>
-<kw name="Get OTP From Email">
-<kw name="Open Mailbox" owner="ImapLibrary2">
-<arg>host=${IMAP_SERVER}</arg>
-<arg>user=${EMAIL}</arg>
-<arg>password=${IMAP_APP_PASSWORD}</arg>
-<arg>port=${IMAP_PORT}</arg>
-<arg>ssl=True</arg>
-<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
-<status status="PASS" start="2025-08-04T11:53:03.081807" elapsed="2.363530"/>
-</kw>
-<kw name="Wait For Email" owner="ImapLibrary2">
-<msg time="2025-08-04T11:53:07.322136" level="INFO">${latest} = 383</msg>
-<var>${latest}</var>
-<arg>sender=info@terrasofthq.com</arg>
-<arg>subject=${OTP_SUBJECT}</arg>
-<arg>timeout=60</arg>
-<doc>Wait for email message to arrived based on any given filter criteria.
-Returns email index of the latest email message received.</doc>
-<status status="PASS" start="2025-08-04T11:53:05.445674" elapsed="1.876584"/>
-</kw>
-<kw name="Get Email Body" owner="ImapLibrary2">
-<msg time="2025-08-04T11:53:08.122773" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-  &lt;head&gt;
-    &lt;meta name="viewpo...</msg>
-<var>${body}</var>
-<arg>${latest}</arg>
-<doc>Returns the decoded email body on multipart email message,
-otherwise returns the body text.</doc>
-<status status="PASS" start="2025-08-04T11:53:07.322890" elapsed="0.799980"/>
-</kw>
-<kw name="Extract OTP From Body">
-<kw name="Fetch From Right" owner="String">
-<msg time="2025-08-04T11:53:08.124839" level="INFO">${otp} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-  &lt;head&gt;
-    &lt;meta name="viewpo...</msg>
-<var>${otp}</var>
-<arg>${body}</arg>
-<arg>OTP:</arg>
-<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
-<status status="PASS" start="2025-08-04T11:53:08.124336" elapsed="0.000592"/>
-</kw>
-<kw name="Get Regexp Matches" owner="String">
-<msg time="2025-08-04T11:53:08.126174" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<arg>${otp}</arg>
-<arg>\d{6}</arg>
-<doc>Returns a list of all non-overlapping matches in the given string.</doc>
-<status status="PASS" start="2025-08-04T11:53:08.125271" elapsed="0.000985"/>
-</kw>
-<return>
-<value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:53:08.126416" elapsed="0.000096"/>
-</return>
-<msg time="2025-08-04T11:53:08.126786" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<arg>${body}</arg>
-<status status="PASS" start="2025-08-04T11:53:08.123385" elapsed="0.003458"/>
-</kw>
-<return>
-<value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:53:08.126962" elapsed="0.000065"/>
-</return>
-<msg time="2025-08-04T11:53:08.127264" level="INFO">${otp} = []</msg>
-<var>${otp}</var>
-<status status="PASS" start="2025-08-04T11:53:03.081325" elapsed="5.045994"/>
-</kw>
-<kw name="Input OTP And Verify Login">
-<kw name="Convert To List" owner="Collections">
-<msg time="2025-08-04T11:53:08.128412" level="INFO">${otp_digits} = []</msg>
-<var>${otp_digits}</var>
-<arg>${otp}</arg>
-<doc>Converts the given ``item`` to a Python ``list`` type.</doc>
-<status status="PASS" start="2025-08-04T11:53:08.128173" elapsed="0.000278"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=(//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/input[1])[${index + 1}]</arg>
-<arg>${digit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:08.128897" elapsed="0.000036"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:08.129050" elapsed="0.000031"/>
-</kw>
-<var name="${index}"/>
-<var name="${digit}"/>
-<status status="NOT RUN" start="2025-08-04T11:53:08.128759" elapsed="0.000366"/>
-</iter>
-<var>${index}</var>
-<var>${digit}</var>
-<value>@{otp_digits}</value>
-<status status="NOT RUN" start="2025-08-04T11:53:08.128552" elapsed="0.000635"/>
-</for>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:53:11.130251" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:53:08.129300" elapsed="3.001090"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:11.130873" level="INFO">Clicking button 'xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button'.</msg>
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:53:11.130609" elapsed="0.135661"/>
-</kw>
-<arg>${otp}</arg>
-<status status="PASS" start="2025-08-04T11:53:08.127672" elapsed="3.138709"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:53:21.266918" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:53:11.266511" elapsed="10.000743"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:52:40.469183" elapsed="40.798455"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:21.269588" level="INFO">Clicking element 'xpath=//*[@id="profile"]/div'.</msg>
-<msg time="2025-08-04T11:53:21.522773" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-04T11:53:21.523002" level="FAIL">Element with locator 'xpath=//*[@id="profile"]/div' not found.</msg>
-<arg>xpath=//*[@id="profile"]/div</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-04T11:53:21.268670" elapsed="0.255846">Element with locator 'xpath=//*[@id="profile"]/div' not found.</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-dropdown-menu-content-v-11"]/div[3]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:21.524876" elapsed="0.000042"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:21.525158" elapsed="0.000036"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="radix-vue-dialog-content-v-27"]/div/button[2]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:21.525437" elapsed="0.000035"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:21.525711" elapsed="0.000037"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.394512" elapsed="0.000115"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:21.525947" elapsed="0.000034"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.395384" elapsed="0.000120"/>
 </kw>
-<status status="FAIL" start="2025-08-04T11:52:40.468162" elapsed="41.058123">Element with locator 'xpath=//*[@id="profile"]/div' not found.</status>
-</test>
-<status status="FAIL" start="2025-08-04T11:51:37.673032" elapsed="103.854572"/>
-</suite>
-<status status="FAIL" start="2025-08-04T11:51:37.671027" elapsed="103.858292"/>
-</suite>
-<suite id="s1-s2" name="Login" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Login">
-<suite id="s1-s2-s1" name="loginAdmin" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Login\loginAdmin.robot">
-<test id="s1-s2-s1-t1" name="Load Admin Login Page" line="25">
-<kw name="Load Login Admin Page">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:21.545215" level="INFO">Opening browser 'edge' to base url 'https://admin.terrasoft.co.ke/auth/login'.</msg>
-<msg time="2025-08-04T11:53:21.999121" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-04T11:53:21.999376" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</msg>
-<arg>${admin_url}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-08-04T11:53:21.544833" elapsed="0.465635">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
-</kw>
-<status status="FAIL" start="2025-08-04T11:53:21.544204" elapsed="0.466470">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
-</status>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.011093" elapsed="0.000041"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.011431" elapsed="0.000037"/>
-</kw>
-<status status="FAIL" start="2025-08-04T11:53:21.543324" elapsed="0.468471">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<status status="FAIL" start="2025-08-05T13:02:23.075355" elapsed="0.321037">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </status>
 </test>
-<test id="s1-s2-s1-t2" name="Login Correct Credentials" line="30">
-<kw name="Login Correct Credentials Admin">
-<kw name="Load Login Admin Page">
+<test id="s1-s2-s1-t2" name="Login Admin With Valid Credentials" line="32">
+<kw name="Login Admin">
+<kw name="Open Admin Login">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:22.016566" level="INFO">Opening browser 'edge' to base url 'https://admin.terrasoft.co.ke/auth/login'.</msg>
-<msg time="2025-08-04T11:53:22.295354" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-04T11:53:22.295510" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<msg time="2025-08-05T13:02:23.402291" level="INFO">Opening browser 'edge' to base url 'https://admin.terrasoft.co.ke/auth/login'.</msg>
+<msg time="2025-08-05T13:02:23.703657" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-08-05T13:02:23.704311" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </msg>
-<arg>${admin_url}</arg>
-<arg>${browser}</arg>
+<arg>${ADMIN_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-08-04T11:53:22.016110" elapsed="0.282181">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<status status="FAIL" start="2025-08-05T13:02:23.401517" elapsed="0.323878">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </status>
 </kw>
-<status status="FAIL" start="2025-08-04T11:53:22.015491" elapsed="0.283099">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-08-05T13:02:23.726046" elapsed="0.000146"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:02:23.400849" elapsed="0.325749">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </status>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
 <arg>xpath=//*[@id="app"]/div/div/div[2]/div/form/div[1]/input</arg>
-<arg>${admin_email}</arg>
+<arg>${ADMIN_EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.299016" elapsed="0.000062"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.727450" elapsed="0.000142"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
 <arg>xpath=//*[@id="app"]/div/div/div[2]/div/form/div[2]/input</arg>
-<arg>${admin_password}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.299390" elapsed="0.000088"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.728010" elapsed="0.000122"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
+<kw name="Click Button" owner="SeleniumLibrary">
 <arg>xpath=//*[@id="app"]/div/div/div[2]/div/form/div[3]/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.299795" elapsed="0.000081"/>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:02:23.728639" elapsed="0.000134"/>
 </kw>
-<status status="FAIL" start="2025-08-04T11:53:22.013163" elapsed="0.287111">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<status status="FAIL" start="2025-08-05T13:02:23.400087" elapsed="0.329071">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </status>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<arg>3s</arg>
+<arg>${DELAY}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.300922" elapsed="0.000074"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.730198" elapsed="0.000156"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-08-04T11:53:22.301337" elapsed="0.000057"/>
+<status status="NOT RUN" start="2025-08-05T13:02:23.731330" elapsed="0.000268"/>
 </kw>
-<status status="FAIL" start="2025-08-04T11:53:22.012712" elapsed="0.289251">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<status status="FAIL" start="2025-08-05T13:02:23.398765" elapsed="0.334292">NoSuchDriverException: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 </status>
 </test>
-<status status="FAIL" start="2025-08-04T11:53:21.533898" elapsed="0.769569"/>
+<status status="FAIL" start="2025-08-05T13:02:23.023844" elapsed="0.713258"/>
 </suite>
-<suite id="s1-s2-s2" name="loginUser" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Login\loginUser.robot">
-<test id="s1-s2-s2-t1" name="Login with OTP" line="38">
-<kw name="Login Correct Credentials User">
-<kw name="Load Login User Page">
+<suite id="s1-s2-s2" name="loginUser" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Login\loginUser.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:22.311889" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
-<arg>${staging_url}</arg>
-<arg>${browser}</arg>
+<msg time="2025-08-05T13:02:25.065887" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
+<arg>${STAGING_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-04T11:53:22.311677" elapsed="19.553550"/>
+<status status="PASS" start="2025-08-05T13:02:25.065352" elapsed="14.091987"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-04T11:53:41.865601" elapsed="0.068018"/>
+<status status="PASS" start="2025-08-05T13:02:39.158611" elapsed="0.148565"/>
 </kw>
-<status status="PASS" start="2025-08-04T11:53:22.311397" elapsed="19.622592"/>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-08-05T13:02:39.307558" elapsed="0.000871"/>
 </kw>
+<status status="PASS" start="2025-08-05T13:02:25.064668" elapsed="14.244011"/>
+</kw>
+<test id="s1-s2-s2-t1" name="Login With OTP" line="29">
+<kw name="Login With Valid Credentials">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:41.934868" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
+<msg time="2025-08-05T13:02:39.311884" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
 <arg>id:emailAddress</arg>
 <arg>${EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:53:41.934290" elapsed="0.288735"/>
+<status status="PASS" start="2025-08-05T13:02:39.310786" elapsed="9.482962"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:42.223867" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-08-04T11:53:42.305728" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2025-08-05T13:02:48.796018" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-08-05T13:02:54.927202" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id:password</arg>
 <arg>${EMAIL_PASSWORD}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:53:42.223461" elapsed="0.275356"/>
+<status status="PASS" start="2025-08-05T13:02:48.794669" elapsed="9.457459"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:53:42.499613" level="INFO">Clicking element 'id:login-button'.</msg>
+<msg time="2025-08-05T13:02:58.253673" level="INFO">Clicking element 'id:login-button'.</msg>
 <arg>id:login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:53:42.499193" elapsed="0.185925"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:53:22.310946" elapsed="20.374400"/>
+<status status="PASS" start="2025-08-05T13:02:58.252861" elapsed="6.381995"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:53:47.686931" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
+<msg time="2025-08-05T13:03:07.637845" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:53:42.685991" elapsed="5.001140"/>
+<status status="PASS" start="2025-08-05T13:03:04.635875" elapsed="3.002440"/>
+</kw>
+<status status="PASS" start="2025-08-05T13:02:39.310142" elapsed="28.328660"/>
 </kw>
 <kw name="Get OTP From Email">
 <kw name="Open Mailbox" owner="ImapLibrary2">
@@ -584,20 +215,247 @@ otherwise returns the body text.</doc>
 <arg>port=${IMAP_PORT}</arg>
 <arg>ssl=True</arg>
 <doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
-<status status="PASS" start="2025-08-04T11:53:47.688357" elapsed="2.929575"/>
+<status status="PASS" start="2025-08-05T13:03:07.641395" elapsed="2.534713"/>
 </kw>
 <kw name="Wait For Email" owner="ImapLibrary2">
-<msg time="2025-08-04T11:53:52.087638" level="INFO">${latest} = 382</msg>
+<msg time="2025-08-05T13:03:11.639451" level="INFO">${mail} = 390</msg>
+<var>${mail}</var>
+<arg>sender=info@terrasofthq.com</arg>
+<arg>subject=${OTP_SUBJECT}</arg>
+<arg>timeout=${OTP_TIMEOUT}</arg>
+<doc>Wait for email message to arrived based on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2025-08-05T13:03:10.177010" elapsed="1.462770"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2025-08-05T13:03:12.565639" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+  &lt;head&gt;
+    &lt;meta name="viewpo...</msg>
+<var>${body}</var>
+<arg>${mail}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2025-08-05T13:03:11.641256" elapsed="0.924804"/>
+</kw>
+<kw name="Extract OTP From Body ${body}">
+<msg time="2025-08-05T13:03:12.593439" level="FAIL">No keyword with name 'Extract OTP From Body ${body}' found. Did you try using keyword 'Extract OTP From Body' and forgot to use enough whitespace between keyword and arguments?</msg>
+<var>${otp}</var>
+<status status="FAIL" start="2025-08-05T13:03:12.593156" elapsed="0.000604">No keyword with name 'Extract OTP From Body ${body}' found. Did you try using keyword 'Extract OTP From Body' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="Close Mailbox" owner="ImapLibrary2">
+<doc>Close IMAP email client session.</doc>
+<status status="NOT RUN" start="2025-08-05T13:03:12.595303" elapsed="0.000269"/>
+</kw>
+<return>
+<value>${otp}</value>
+<status status="NOT RUN" start="2025-08-05T13:03:12.596007" elapsed="0.000259"/>
+</return>
+<var>${otp}</var>
+<status status="FAIL" start="2025-08-05T13:03:07.640251" elapsed="4.956969">No keyword with name 'Extract OTP From Body ${body}' found. Did you try using keyword 'Extract OTP From Body' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="Input OTP And Submit">
+<arg>${otp}</arg>
+<status status="NOT RUN" start="2025-08-05T13:03:12.599260" elapsed="0.000298"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-05T13:03:12.600859" elapsed="0.000230"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>dashboard</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:03:12.602854" elapsed="0.000360"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-08-05T13:03:12.605107" elapsed="0.000264"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-05T13:03:15.890337" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-05T13:03:12.608593" elapsed="3.282126"/>
+</kw>
+<tag>regression</tag>
+<status status="FAIL" start="2025-08-05T13:02:39.308847" elapsed="36.582439">No keyword with name 'Extract OTP From Body ${body}' found. Did you try using keyword 'Extract OTP From Body' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-05T13:03:15.894985" elapsed="5.482121"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:02:23.743021" elapsed="57.634380"/>
+</suite>
+<status status="FAIL" start="2025-08-05T13:02:23.018365" elapsed="58.364127"/>
+</suite>
+<suite id="s1-s3" name="Registration" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Registration">
+<suite id="s1-s3-s1" name="userRegistration" source="C:\Users\LENOVO\Downloads\tests-main\tests-main\Web\Registration\userRegistration.robot">
+<test id="s1-s3-s1-t1" name="User Registration" line="29">
+<kw name="Open Registration Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:03:21.442840" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
+<arg>${STAGING_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-05T13:03:21.440189" elapsed="27.184462"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-05T13:03:48.625622" elapsed="3.178569"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:03:51.805335" level="INFO">Clicking element 'id:create-account-button'.</msg>
+<arg>id:create-account-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:03:51.804754" elapsed="6.532037"/>
+</kw>
+<status status="PASS" start="2025-08-05T13:03:21.436991" elapsed="36.900579"/>
+</kw>
+<kw name="Fill Personal And Company Info">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:03:58.341700" level="INFO">Typing text 'Mary Poppins' into text field 'xpath=//input[@placeholder='John Doe']'.</msg>
+<arg>xpath=//input[@placeholder='John Doe']</arg>
+<arg>Mary Poppins</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:03:58.340495" elapsed="10.336512"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:08.679876" level="INFO">Typing text 'My Company' into text field 'xpath=//input[@placeholder='Terra']'.</msg>
+<arg>xpath=//input[@placeholder='Terra']</arg>
+<arg>My Company</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:04:08.678283" elapsed="9.389545"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:18.070272" level="INFO">Typing text 'stephkiby@gmail.com' into text field 'xpath=//input[@placeholder='terra@example.co.ke']'.</msg>
+<arg>xpath=//input[@placeholder='terra@example.co.ke']</arg>
+<arg>stephkiby@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:04:18.069033" elapsed="9.483991"/>
+</kw>
+<status status="PASS" start="2025-08-05T13:03:58.339202" elapsed="29.214842"/>
+</kw>
+<kw name="Select Industry And Country">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:27.558505" level="INFO">Clicking element 'xpath=//div[label[contains(text(),'Industry')]]//button'.</msg>
+<msg time="2025-08-05T13:04:33.998871" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-05T13:04:33.999522" level="FAIL">Element with locator 'xpath=//div[label[contains(text(),'Industry')]]//button' not found.</msg>
+<arg>xpath=//div[label[contains(text(),'Industry')]]//button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-08-05T13:04:27.557019" elapsed="6.456551">Element with locator 'xpath=//div[label[contains(text(),'Industry')]]//button' not found.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@role='option'][1]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-08-05T13:04:34.014774" elapsed="0.000316"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@role='option'][1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:04:34.015743" elapsed="0.000148"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//div[label[contains(text(),'Country')]]//button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:04:34.016638" elapsed="0.000289"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@role='option'][1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-08-05T13:04:34.017991" elapsed="0.000192"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@role='option'][1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:04:34.018855" elapsed="0.000214"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:04:27.555811" elapsed="6.464396">Element with locator 'xpath=//div[label[contains(text(),'Industry')]]//button' not found.</status>
+</kw>
+<kw name="Add Phone Number">
+<status status="NOT RUN" start="2025-08-05T13:04:34.022027" elapsed="0.000249"/>
+</kw>
+<kw name="Select Company Type And Business ID">
+<status status="NOT RUN" start="2025-08-05T13:04:34.023456" elapsed="0.000200"/>
+</kw>
+<kw name="Choose Products Of Interest">
+<status status="NOT RUN" start="2025-08-05T13:04:34.024772" elapsed="0.000186"/>
+</kw>
+<kw name="Submit Registration">
+<status status="NOT RUN" start="2025-08-05T13:04:34.025987" elapsed="0.000188"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-05T13:04:37.355818" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-05T13:04:34.027992" elapsed="3.328554"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:03:21.431611" elapsed="75.936703">Element with locator 'xpath=//div[label[contains(text(),'Industry')]]//button' not found.</status>
+</test>
+<test id="s1-s3-s1-t2" name="Login As User With OTP" line="38">
+<kw name="Login Correct Credentials User">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:37.427509" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
+<arg>${STAGING_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-05T13:04:37.426571" elapsed="6.021495"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-05T13:04:43.449203" elapsed="4.515140"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:47.967335" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
+<arg>id:emailAddress</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:04:47.965329" elapsed="9.677332"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:04:57.646522" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-08-05T13:05:03.883045" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>${EMAIL_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:04:57.644299" elapsed="9.434496"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-05T13:05:07.080606" level="INFO">Clicking element 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-05T13:05:07.079685" elapsed="6.276408"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-05T13:05:16.358680" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-05T13:05:13.357052" elapsed="3.002213"/>
+</kw>
+<status status="PASS" start="2025-08-05T13:04:37.425191" elapsed="38.934890"/>
+</kw>
+<kw name="Get OTP From Email">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${IMAP_SERVER}</arg>
+<arg>user=${EMAIL}</arg>
+<arg>password=${IMAP_APP_PASSWORD}</arg>
+<arg>port=${IMAP_PORT}</arg>
+<arg>ssl=True</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2025-08-05T13:05:16.363381" elapsed="1.923199"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2025-08-05T13:05:19.535436" level="INFO">${latest} = 390</msg>
 <var>${latest}</var>
 <arg>sender=info@terrasofthq.com</arg>
 <arg>subject=${OTP_SUBJECT}</arg>
-<arg>timeout=60</arg>
+<arg>timeout=${OTP_TIMEOUT}</arg>
 <doc>Wait for email message to arrived based on any given filter criteria.
 Returns email index of the latest email message received.</doc>
-<status status="PASS" start="2025-08-04T11:53:50.618196" elapsed="1.469550"/>
+<status status="PASS" start="2025-08-05T13:05:18.288030" elapsed="1.247737"/>
 </kw>
 <kw name="Get Email Body" owner="ImapLibrary2">
-<msg time="2025-08-04T11:53:52.835114" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
+<msg time="2025-08-05T13:05:20.257620" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
   &lt;head&gt;
     &lt;meta name="viewpo...</msg>
@@ -605,394 +463,278 @@ Returns email index of the latest email message received.</doc>
 <arg>${latest}</arg>
 <doc>Returns the decoded email body on multipart email message,
 otherwise returns the body text.</doc>
-<status status="PASS" start="2025-08-04T11:53:52.088054" elapsed="0.747148"/>
+<status status="PASS" start="2025-08-05T13:05:19.537015" elapsed="0.720871"/>
 </kw>
 <kw name="Extract OTP From Body">
 <kw name="Fetch From Right" owner="String">
-<msg time="2025-08-04T11:53:52.836319" level="INFO">${otp} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
+<msg time="2025-08-05T13:05:20.263013" level="INFO">${otp_line} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
   &lt;head&gt;
     &lt;meta name="viewpo...</msg>
-<var>${otp}</var>
+<var>${otp_line}</var>
 <arg>${body}</arg>
 <arg>OTP:</arg>
 <doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
-<status status="PASS" start="2025-08-04T11:53:52.836027" elapsed="0.000496"/>
+<status status="PASS" start="2025-08-05T13:05:20.260901" elapsed="0.002412"/>
 </kw>
 <kw name="Get Regexp Matches" owner="String">
-<msg time="2025-08-04T11:53:52.837293" level="INFO">${otp} = []</msg>
+<msg time="2025-08-05T13:05:20.266940" level="INFO">${otp} = []</msg>
 <var>${otp}</var>
-<arg>${otp}</arg>
+<arg>${otp_line}</arg>
 <arg>\d{6}</arg>
 <doc>Returns a list of all non-overlapping matches in the given string.</doc>
-<status status="PASS" start="2025-08-04T11:53:52.836726" elapsed="0.000614"/>
+<status status="PASS" start="2025-08-05T13:05:20.264214" elapsed="0.002979"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-05T13:05:20.269352" level="INFO">Length is 0.</msg>
+<msg time="2025-08-05T13:05:20.269799" level="FAIL">OTP not found in email body.</msg>
+<arg>${otp}</arg>
+<arg>OTP not found in email body.</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="FAIL" start="2025-08-05T13:05:20.267938" elapsed="0.002287">OTP not found in email body.</status>
 </kw>
 <return>
-<value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:53:52.837451" elapsed="0.000069"/>
+<value>${otp}[0]</value>
+<status status="NOT RUN" start="2025-08-05T13:05:20.270806" elapsed="0.000223"/>
 </return>
-<msg time="2025-08-04T11:53:52.837761" level="INFO">${otp} = []</msg>
 <var>${otp}</var>
 <arg>${body}</arg>
-<status status="PASS" start="2025-08-04T11:53:52.835525" elapsed="0.002288"/>
+<status status="FAIL" start="2025-08-05T13:05:20.258932" elapsed="0.013470">OTP not found in email body.</status>
+</kw>
+<kw name="Close Mailbox" owner="ImapLibrary2">
+<doc>Close IMAP email client session.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:20.274295" elapsed="0.000249"/>
 </kw>
 <return>
 <value>${otp}</value>
-<status status="PASS" start="2025-08-04T11:53:52.837911" elapsed="0.000056"/>
+<status status="NOT RUN" start="2025-08-05T13:05:20.274883" elapsed="0.000159"/>
 </return>
-<msg time="2025-08-04T11:53:52.838176" level="INFO">${otp} = []</msg>
 <var>${otp}</var>
-<status status="PASS" start="2025-08-04T11:53:47.687869" elapsed="5.150357"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:54:02.839729" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:53:52.838880" elapsed="10.001148"/>
+<status status="FAIL" start="2025-08-05T13:05:16.361682" elapsed="3.914102">OTP not found in email body.</status>
 </kw>
 <kw name="Input OTP And Verify Login">
-<kw name="Convert To List" owner="Collections">
-<msg time="2025-08-04T11:54:02.841470" level="INFO">${otp_digits} = []</msg>
-<var>${otp_digits}</var>
-<arg>${otp}</arg>
-<doc>Converts the given ``item`` to a Python ``list`` type.</doc>
-<status status="PASS" start="2025-08-04T11:54:02.841209" elapsed="0.000312"/>
-</kw>
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=(//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/input)[${index + 1}]</arg>
-<arg>${digit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:02.842015" elapsed="0.000068"/>
+<status status="NOT RUN" start="2025-08-05T13:05:20.277482" elapsed="0.000331"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<arg>5s</arg>
+<arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:02.842249" elapsed="0.000042"/>
+<status status="NOT RUN" start="2025-08-05T13:05:20.278924" elapsed="0.000167"/>
 </kw>
-<var name="${index}"/>
-<var name="${digit}"/>
-<status status="NOT RUN" start="2025-08-04T11:54:02.841867" elapsed="0.000487"/>
-</iter>
-<var>${index}</var>
-<var>${digit}</var>
-<value>@{otp_digits}</value>
-<status status="NOT RUN" start="2025-08-04T11:54:02.841665" elapsed="0.000771"/>
-</for>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:54:02.842981" level="INFO">Clicking button 'xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button'.</msg>
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-04T11:54:02.842668" elapsed="0.151396"/>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>dashboard</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:20.280172" elapsed="0.000199"/>
 </kw>
-<arg>${otp}</arg>
-<status status="PASS" start="2025-08-04T11:54:02.840697" elapsed="0.153619"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-05T13:05:23.535656" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-05T13:05:20.281537" elapsed="3.254565"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-08-04T11:54:12.995644" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-08-04T11:54:02.994777" elapsed="10.001002"/>
-</kw>
-<status status="PASS" start="2025-08-04T11:53:22.309923" elapsed="50.686311"/>
+<status status="FAIL" start="2025-08-05T13:04:37.423132" elapsed="46.114118">OTP not found in email body.</status>
 </test>
-<status status="PASS" start="2025-08-04T11:53:22.304834" elapsed="50.692521"/>
-</suite>
-<status status="FAIL" start="2025-08-04T11:53:21.530558" elapsed="51.468327"/>
-</suite>
-<suite id="s1-s3" name="Registration" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Registration">
-<suite id="s1-s3-s1" name="userRegistration" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Registration\userRegistration.robot">
-<test id="s1-s3-s1-t1" name="User Registration" line="25">
-<kw name="Load Login User Page">
+<test id="s1-s3-s1-t3" name="Login As Admin" line="45">
+<kw name="Login Correct Credentials Admin">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:54:13.020353" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
-<arg>${staging_url}</arg>
-<arg>${browser}</arg>
+<msg time="2025-08-05T13:05:23.544281" level="INFO">Opening browser 'chrome' to base url 'https://admin.terrasoft.co.ke/auth/login'.</msg>
+<msg time="2025-08-05T13:05:30.602075" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-05T13:05:30.602781" level="FAIL">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cc7be415+77285]
+	GetHandleVerifier [0x0x7ff6cc7be470+77376]
+	(No symbol) [0x0x7ff6cc589a6a]
+	(No symbol) [0x0x7ff6cc586823]
+	(No symbol) [0x0x7ff6cc577659]
+	(No symbol) [0x0x7ff6cc579401]
+	(No symbol) [0x0x7ff6cc577976]
+	(No symbol) [0x0x7ff6cc5773d6]
+	(No symbol) [0x0x7ff6cc57709a]
+	(No symbol) [0x0x7ff6cc574c68]
+	(No symbol) [0x0x7ff6cc5754ec]
+	(No symbol) [0x0x7ff6cc58da1a]
+	(No symbol) [0x0x7ff6cc63167e]
+	(No symbol) [0x0x7ff6cc60860a]
+	(No symbol) [0x0x7ff6cc63087f]
+	(No symbol) [0x0x7ff6cc6083e3]
+	(No symbol) [0x0x7ff6cc5d1521]
+	(No symbol) [0x0x7ff6cc5d22b3]
+	GetHandleVerifier [0x0x7ff6ccaa1efd+3107021]
+	GetHandleVerifier [0x0x7ff6cca9c29d+3083373]
+	GetHandleVerifier [0x0x7ff6ccabbedd+3213485]
+	GetHandleVerifier [0x0x7ff6cc7d884e+184862]
+	GetHandleVerifier [0x0x7ff6cc7e055f+216879]
+	GetHandleVerifier [0x0x7ff6cc7c7084+113236]
+	GetHandleVerifier [0x0x7ff6cc7c7239+113673]
+	GetHandleVerifier [0x0x7ff6cc7ae298+11368]
+	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
+	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
+</msg>
+<arg>${ADMIN_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-04T11:54:13.019764" elapsed="5.208764"/>
+<status status="FAIL" start="2025-08-05T13:05:23.543396" elapsed="7.072592">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cc7be415+77285]
+	GetHandleVerifier [0x0x7ff6cc7be470+77376]
+	(No symbol) [0x0x7ff6cc589a6a]
+	(No symbol) [0x0x7ff6cc586823]
+	(No symbol) [0x0x7ff6cc577659]
+	(No symbol) [0x0x7ff6cc579401]
+	(No symbol) [0x0x7ff6cc577976]
+	(No symbol) [0x0x7ff6cc5773d6]
+	(No symbol) [0x0x7ff6cc57709a]
+	(No symbol) [0x0x7ff6cc574c68]
+	(No symbol) [0x0x7ff6cc5754ec]
+	(No symbol) [0x0x7ff6cc58da1a]
+	(No symbol) [0x0x7ff6cc63167e]
+	(No symbol) [0x0x7ff6cc60860a]
+	(No symbol) [0x0x7ff6cc63087f]
+	(No symbol) [0x0x7ff6cc6083e3]
+	(No symbol) [0x0x7ff6cc5d1521]
+	(No symbol) [0x0x7ff6cc5d22b3]
+	GetHandleVerifier [0x0x7ff6ccaa1efd+3107021]
+	GetHandleVerifier [0x0x7ff6cca9c29d+3083373]
+	GetHandleVerifier [0x0x7ff6ccabbedd+3213485]
+	GetHandleVerifier [0x0x7ff6cc7d884e+184862]
+	GetHandleVerifier [0x0x7ff6cc7e055f+216879]
+	GetHandleVerifier [0x0x7ff6cc7c7084+113236]
+	GetHandleVerifier [0x0x7ff6cc7c7239+113673]
+	GetHandleVerifier [0x0x7ff6cc7ae298+11368]
+	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
+	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
+</status>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<msg time="2025-08-04T11:54:18.245206" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=138.0.7204.184)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
-	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
-	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
-</msg>
-<msg time="2025-08-04T11:54:18.293995" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=138.0.7204.184)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
-	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
-	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
-</msg>
 <doc>Maximizes current browser window.</doc>
-<status status="FAIL" start="2025-08-04T11:54:18.228963" elapsed="0.079618">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
+<status status="NOT RUN" start="2025-08-05T13:05:30.617325" elapsed="0.000181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='text']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:30.618123" elapsed="0.000274"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:30.619303" elapsed="0.000213"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(., 'Login')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:30.620148" elapsed="0.000154"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:05:23.542197" elapsed="7.078796">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
   (Session info: chrome=138.0.7204.184)
 Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
+	GetHandleVerifier [0x0x7ff6cc7be415+77285]
+	GetHandleVerifier [0x0x7ff6cc7be470+77376]
+	(No symbol) [0x0x7ff6cc589a6a]
+	(No symbol) [0x0x7ff6cc586823]
+	(No symbol) [0x0x7ff6cc577659]
+	(No symbol) [0x0x7ff6cc579401]
+	(No symbol) [0x0x7ff6cc577976]
+	(No symbol) [0x0x7ff6cc5773d6]
+	(No symbol) [0x0x7ff6cc57709a]
+	(No symbol) [0x0x7ff6cc574c68]
+	(No symbol) [0x0x7ff6cc5754ec]
+	(No symbol) [0x0x7ff6cc58da1a]
+	(No symbol) [0x0x7ff6cc63167e]
+	(No symbol) [0x0x7ff6cc60860a]
+	(No symbol) [0x0x7ff6cc63087f]
+	(No symbol) [0x0x7ff6cc6083e3]
+	(No symbol) [0x0x7ff6cc5d1521]
+	(No symbol) [0x0x7ff6cc5d22b3]
+	GetHandleVerifier [0x0x7ff6ccaa1efd+3107021]
+	GetHandleVerifier [0x0x7ff6cca9c29d+3083373]
+	GetHandleVerifier [0x0x7ff6ccabbedd+3213485]
+	GetHandleVerifier [0x0x7ff6cc7d884e+184862]
+	GetHandleVerifier [0x0x7ff6cc7e055f+216879]
+	GetHandleVerifier [0x0x7ff6cc7c7084+113236]
+	GetHandleVerifier [0x0x7ff6cc7c7239+113673]
+	GetHandleVerifier [0x0x7ff6cc7ae298+11368]
 	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
 	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
 </status>
-</kw>
-<status status="FAIL" start="2025-08-04T11:54:13.018919" elapsed="5.290123">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=138.0.7204.184)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
-	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
-	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
-</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>id:create-account-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.310013" elapsed="0.000121"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//input[@placeholder='John Doe']</arg>
-<arg>Mary Poppins</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.310662" elapsed="0.000073"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//input[@placeholder='Terra']</arg>
-<arg>My Company</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.311127" elapsed="0.000137"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//input[@placeholder='terra@example.co.ke']</arg>
-<arg>stephkiby@gmail.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.312139" elapsed="0.000134"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[4]/div/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.313037" elapsed="0.000115"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[3]/div/div/div[2]/div/div/div[1]</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.313756" elapsed="0.000113"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[3]/div/div/div[2]/div/div/div[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.323518" elapsed="0.000150"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[5]/div/button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.324352" elapsed="0.000174"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[3]/div/div/div[2]/div/div/div[1]</arg>
-<arg>5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.325411" elapsed="0.000104"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[3]/div/div/div[2]/div/div/div[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.326001" elapsed="0.000099"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[6]/div/div/div/span</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.326585" elapsed="0.000083"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[6]/div/div/div/ul/li[1]/span[1]</arg>
-<arg>5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.327145" elapsed="0.000095"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[6]/div/div/div/ul/li[1]/span[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.328142" elapsed="0.000217"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//input[@placeholder='12345678']</arg>
-<arg>712345678</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.329256" elapsed="0.000112"/>
-</kw>
-<kw name="Select From List By Index" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[1]/div/div[2]/div[2]/div/div[2]/form/div/div[7]/div/select</arg>
-<arg>1</arg>
-<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.330033" elapsed="0.000184"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>xpath=//input[@placeholder='12345678']</arg>
-<arg>00100100</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.375862" elapsed="0.000190"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[9]/div/div[5]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.377389" elapsed="0.000173"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<arg>3</arg>
+<arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.378475" elapsed="0.000099"/>
+<status status="NOT RUN" start="2025-08-05T13:05:30.622314" elapsed="0.000253"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/form/div/div[9]/div/div[4]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.379054" elapsed="0.000060"/>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<arg>admin</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-08-05T13:05:30.623494" elapsed="0.000159"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>//*[@id="signup-button"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-04T11:54:18.379588" elapsed="0.000092"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-08-05T13:05:33.858330" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-05T13:05:30.624658" elapsed="3.234294"/>
 </kw>
-<status status="FAIL" start="2025-08-04T11:54:13.015456" elapsed="5.364917">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
+<status status="FAIL" start="2025-08-05T13:05:23.540247" elapsed="10.320033">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
   (Session info: chrome=138.0.7204.184)
 Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
+	GetHandleVerifier [0x0x7ff6cc7be415+77285]
+	GetHandleVerifier [0x0x7ff6cc7be470+77376]
+	(No symbol) [0x0x7ff6cc589a6a]
+	(No symbol) [0x0x7ff6cc586823]
+	(No symbol) [0x0x7ff6cc577659]
+	(No symbol) [0x0x7ff6cc579401]
+	(No symbol) [0x0x7ff6cc577976]
+	(No symbol) [0x0x7ff6cc5773d6]
+	(No symbol) [0x0x7ff6cc57709a]
+	(No symbol) [0x0x7ff6cc574c68]
+	(No symbol) [0x0x7ff6cc5754ec]
+	(No symbol) [0x0x7ff6cc58da1a]
+	(No symbol) [0x0x7ff6cc63167e]
+	(No symbol) [0x0x7ff6cc60860a]
+	(No symbol) [0x0x7ff6cc63087f]
+	(No symbol) [0x0x7ff6cc6083e3]
+	(No symbol) [0x0x7ff6cc5d1521]
+	(No symbol) [0x0x7ff6cc5d22b3]
+	GetHandleVerifier [0x0x7ff6ccaa1efd+3107021]
+	GetHandleVerifier [0x0x7ff6cca9c29d+3083373]
+	GetHandleVerifier [0x0x7ff6ccabbedd+3213485]
+	GetHandleVerifier [0x0x7ff6cc7d884e+184862]
+	GetHandleVerifier [0x0x7ff6cc7e055f+216879]
+	GetHandleVerifier [0x0x7ff6cc7c7084+113236]
+	GetHandleVerifier [0x0x7ff6cc7c7239+113673]
+	GetHandleVerifier [0x0x7ff6cc7ae298+11368]
 	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
 	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
 </status>
 </test>
-<status status="FAIL" start="2025-08-04T11:54:13.007186" elapsed="5.386089"/>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-05T13:05:33.877621" elapsed="5.396169"/>
+</kw>
+<status status="FAIL" start="2025-08-05T13:03:21.397311" elapsed="137.876933"/>
 </suite>
-<status status="FAIL" start="2025-08-04T11:54:13.003608" elapsed="5.393599"/>
+<status status="FAIL" start="2025-08-05T13:03:21.386765" elapsed="137.893173"/>
 </suite>
-<status status="FAIL" start="2025-08-04T11:51:37.639930" elapsed="160.767019"/>
+<status status="FAIL" start="2025-08-05T13:02:21.628109" elapsed="197.658453"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="5" skip="0">All Tests</stat>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">regression</stat>
 </tag>
 <suite>
-<stat name="Web" id="s1" pass="1" fail="5" skip="0">Web</stat>
-<stat name="Dashboard" id="s1-s1" pass="0" fail="2" skip="0">Web.Dashboard</stat>
-<stat name="Dashboard" id="s1-s1-s1" pass="0" fail="2" skip="0">Web.Dashboard.Dashboard</stat>
-<stat name="Login" id="s1-s2" pass="1" fail="2" skip="0">Web.Login</stat>
+<stat name="Web" id="s1" pass="0" fail="7" skip="0">Web</stat>
+<stat name="Dashboard" id="s1-s1" pass="0" fail="1" skip="0">Web.Dashboard</stat>
+<stat name="Dashboard" id="s1-s1-s1" pass="0" fail="1" skip="0">Web.Dashboard.Dashboard</stat>
+<stat name="Login" id="s1-s2" pass="0" fail="3" skip="0">Web.Login</stat>
 <stat name="loginAdmin" id="s1-s2-s1" pass="0" fail="2" skip="0">Web.Login.loginAdmin</stat>
-<stat name="loginUser" id="s1-s2-s2" pass="1" fail="0" skip="0">Web.Login.loginUser</stat>
-<stat name="Registration" id="s1-s3" pass="0" fail="1" skip="0">Web.Registration</stat>
-<stat name="userRegistration" id="s1-s3-s1" pass="0" fail="1" skip="0">Web.Registration.userRegistration</stat>
+<stat name="loginUser" id="s1-s2-s2" pass="0" fail="1" skip="0">Web.Login.loginUser</stat>
+<stat name="Registration" id="s1-s3" pass="0" fail="3" skip="0">Web.Registration</stat>
+<stat name="userRegistration" id="s1-s3-s1" pass="0" fail="3" skip="0">Web.Registration.userRegistration</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-04T11:54:18.245206" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=138.0.7204.184)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff783c8e415+77285]
-	GetHandleVerifier [0x0x7ff783c8e470+77376]
-	(No symbol) [0x0x7ff783a59a6a]
-	(No symbol) [0x0x7ff783a31f21]
-	(No symbol) [0x0x7ff783adf9be]
-	(No symbol) [0x0x7ff783b00192]
-	(No symbol) [0x0x7ff783ad83e3]
-	(No symbol) [0x0x7ff783aa1521]
-	(No symbol) [0x0x7ff783aa22b3]
-	GetHandleVerifier [0x0x7ff783f71efd+3107021]
-	GetHandleVerifier [0x0x7ff783f6c29d+3083373]
-	GetHandleVerifier [0x0x7ff783f8bedd+3213485]
-	GetHandleVerifier [0x0x7ff783ca884e+184862]
-	GetHandleVerifier [0x0x7ff783cb055f+216879]
-	GetHandleVerifier [0x0x7ff783c97084+113236]
-	GetHandleVerifier [0x0x7ff783c97239+113673]
-	GetHandleVerifier [0x0x7ff783c7e298+11368]
-	BaseThreadInitThunk [0x0x7ffa1e0a259d+29]
-	RtlUserThreadStart [0x0x7ffa1f9aaf78+40]
-</msg>
 </errors>
 </robot>
