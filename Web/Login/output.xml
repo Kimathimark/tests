@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-04T11:56:44.501449" rpa="false" schemaversion="5">
+<suite id="s1" name="loginUser" source="C:\Users\LENOVO\OneDrive\Desktop\QA\Web\Login\loginUser.robot">
+<test id="s1-t1" name="Login with OTP" line="38">
+<kw name="Login Correct Credentials User">
+<kw name="Load Login User Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-04T11:56:45.208924" level="INFO">Opening browser 'chrome' to base url 'https://beta.terrasofthq.com/login'.</msg>
+<arg>${staging_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-04T11:56:45.208652" elapsed="5.336902"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-04T11:56:50.545800" elapsed="0.043929"/>
+</kw>
+<status status="PASS" start="2025-08-04T11:56:45.207867" elapsed="5.382150"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-04T11:56:50.591751" level="INFO">Typing text 'stephaniekibet@terrasofthq.com' into text field 'id:emailAddress'.</msg>
+<arg>id:emailAddress</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-04T11:56:50.590279" elapsed="0.240501"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-04T11:56:50.831781" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-08-04T11:56:50.891888" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>${EMAIL_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-04T11:56:50.831235" elapsed="0.166003"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-04T11:56:50.997785" level="INFO">Clicking element 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-04T11:56:50.997483" elapsed="0.124181"/>
+</kw>
+<status status="PASS" start="2025-08-04T11:56:45.207489" elapsed="5.914448"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-04T11:56:56.123225" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-04T11:56:51.122433" elapsed="5.000986"/>
+</kw>
+<kw name="Get OTP From Email">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${IMAP_SERVER}</arg>
+<arg>user=${EMAIL}</arg>
+<arg>password=${IMAP_APP_PASSWORD}</arg>
+<arg>port=${IMAP_PORT}</arg>
+<arg>ssl=True</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2025-08-04T11:56:56.124652" elapsed="1.824737"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2025-08-04T11:56:59.256739" level="INFO">${latest} = 383</msg>
+<var>${latest}</var>
+<arg>sender=info@terrasofthq.com</arg>
+<arg>subject=${OTP_SUBJECT}</arg>
+<arg>timeout=60</arg>
+<doc>Wait for email message to arrived based on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2025-08-04T11:56:57.949616" elapsed="1.307216"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2025-08-04T11:56:59.943817" level="INFO">${body} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+  &lt;head&gt;
+    &lt;meta name="viewpo...</msg>
+<var>${body}</var>
+<arg>${latest}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2025-08-04T11:56:59.257225" elapsed="0.686652"/>
+</kw>
+<kw name="Extract OTP From Body">
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-08-04T11:56:59.944596" level="INFO">${otp} = &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+  &lt;head&gt;
+    &lt;meta name="viewpo...</msg>
+<var>${otp}</var>
+<arg>${body}</arg>
+<arg>OTP:</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-08-04T11:56:59.944420" elapsed="0.000210"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-08-04T11:56:59.945169" level="INFO">${otp} = []</msg>
+<var>${otp}</var>
+<arg>${otp}</arg>
+<arg>\d{6}</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-08-04T11:56:59.944739" elapsed="0.000459"/>
+</kw>
+<return>
+<value>${otp}</value>
+<status status="PASS" start="2025-08-04T11:56:59.945265" elapsed="0.000068"/>
+</return>
+<msg time="2025-08-04T11:56:59.945471" level="INFO">${otp} = []</msg>
+<var>${otp}</var>
+<arg>${body}</arg>
+<status status="PASS" start="2025-08-04T11:56:59.944112" elapsed="0.001385"/>
+</kw>
+<return>
+<value>${otp}</value>
+<status status="PASS" start="2025-08-04T11:56:59.945551" elapsed="0.000038"/>
+</return>
+<msg time="2025-08-04T11:56:59.945711" level="INFO">${otp} = []</msg>
+<var>${otp}</var>
+<status status="PASS" start="2025-08-04T11:56:56.124181" elapsed="3.821557"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-04T11:57:09.946774" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-04T11:56:59.946076" elapsed="10.001058"/>
+</kw>
+<kw name="Input OTP And Verify Login">
+<kw name="Convert To List" owner="Collections">
+<msg time="2025-08-04T11:57:09.949853" level="INFO">${otp_digits} = []</msg>
+<var>${otp_digits}</var>
+<arg>${otp}</arg>
+<doc>Converts the given ``item`` to a Python ``list`` type.</doc>
+<status status="PASS" start="2025-08-04T11:57:09.949410" elapsed="0.000529"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<iter>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=(//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/input)[${index + 1}]</arg>
+<arg>${digit}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-04T11:57:09.950893" elapsed="0.000087"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-04T11:57:09.951252" elapsed="0.000080"/>
+</kw>
+<var name="${index}"/>
+<var name="${digit}"/>
+<status status="NOT RUN" start="2025-08-04T11:57:09.950601" elapsed="0.000843"/>
+</iter>
+<var>${index}</var>
+<var>${digit}</var>
+<value>@{otp_digits}</value>
+<status status="NOT RUN" start="2025-08-04T11:57:09.950156" elapsed="0.001442"/>
+</for>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-04T11:57:09.952390" level="INFO">Clicking button 'xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button'.</msg>
+<arg>xpath=//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-04T11:57:09.951955" elapsed="0.123030"/>
+</kw>
+<arg>${otp}</arg>
+<status status="PASS" start="2025-08-04T11:57:09.948481" elapsed="0.126621"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-04T11:57:20.076184" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-04T11:57:10.075446" elapsed="10.000877"/>
+</kw>
+<status status="PASS" start="2025-08-04T11:56:45.206629" elapsed="34.870231"/>
+</test>
+<status status="PASS" start="2025-08-04T11:56:44.503589" elapsed="35.574860"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="loginUser" id="s1" pass="1" fail="0" skip="0">loginUser</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
